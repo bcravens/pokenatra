@@ -1,10 +1,15 @@
 require 'active_record'
 require 'ffaker'
-require 'pg'
+
 require_relative 'connection'
 require_relative '../models/pokemon'
+require_relative '../models/trainer'
 
 Pokemon.destroy_all
+Trainer.destroy_all
+
+Trainer.create(name: "Ash Ketchum", level: 99, team_id: 1, owned_pokemon: "Pikachu", img_url: "https://upload.wikimedia.org/wikipedia/en/0/09/AshXYanime.png")
+
 Pokemon.create(name: "Charmander", cp: rand(800), poke_type: "fire", img_url: "https://img.pokemondb.net/artwork/charmander.jpg")
 Pokemon.create(name: "Squirtle", cp: rand(800), poke_type: "water", img_url: "https://img.pokemondb.net/artwork/squirtle.jpg")
 Pokemon.create(name: "Pikachu", cp: rand(800), poke_type: "lightning", img_url: "https://img.pokemondb.net/artwork/pikachu.jpg")
